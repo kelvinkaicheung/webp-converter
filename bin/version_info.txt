@@ -1,3 +1,5 @@
+libwebp_linux v1.6.0
+libwebp_osx mac-arm64 v1.6.0
 libwebp v1.1.0
 
 https://developers.google.com/speed/webp/download
