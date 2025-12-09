@@ -7,6 +7,10 @@ Option change to array for node to sanitize and escape options to command.
 
 ### Change log 09/12/2025
 
+### Contribution
+
+Update version number, other main repo won't pick up new commits
+
 [![webp-converter Logo](images/nlogo.gif)](https://www.npmjs.com/package/webp-converter)
 
 [webp-converter v2.3.3](https://www.npmjs.com/package/webp-converter)
