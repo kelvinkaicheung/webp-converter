@@ -1,5 +1,11 @@
-### This repo is no longer supported.
-#### Thanks for all your support!
+### Change log 09/12/2025
+
+## Breaking Changes:
+
+Option change to array for node to sanitize and escape options to command.
+"-q 50 -pass 6" should be changed to [`-q` ,`50`, `-pass`, `6`]
+
+### Change log 09/12/2025
 
 [![webp-converter Logo](images/nlogo.gif)](https://www.npmjs.com/package/webp-converter)
 
@@ -7,60 +13,58 @@
 
 A small [node.js](http://nodejs.org) library for converting any image to webp file format or converting webp image to any image file format.
 
-
 This library uses precompiled executables of WebP(v1.1.0) for more info visit [WebP](https://developers.google.com/speed/webp)
 
-For converting other image formats to webp, please read this documentation  [cwebp Encoder](https://developers.google.com/speed/webp/docs/cwebp)
+For converting other image formats to webp, please read this documentation [cwebp Encoder](https://developers.google.com/speed/webp/docs/cwebp)
 
-For converting webp image to other image format, please read this documentation  [dwebp Encoder](https://developers.google.com/speed/webp/docs/dwebp)
+For converting webp image to other image format, please read this documentation [dwebp Encoder](https://developers.google.com/speed/webp/docs/dwebp)
 
 For converting gif image to webp, please read this documentation [gif2webp Converter](https://developers.google.com/speed/webp/docs/gif2webp)
 
 For creating animated webp image using webp images, please read this documentation [webpmux Muxer](https://developers.google.com/speed/webp/docs/webpmux)
 
+## What's New
 
-## What's New 
-* logging options added
+- logging options added
 
 # How to use
 
 ## Fix Permission Issue
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 // this will grant 755 permission to webp executables
 webp.grant_permission();
-
 ```
 
 # cwebp
 
 ## Convert other image format to webp
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.jpeg,.pnp .....) path ,output image(give path where to save and image file name with .webp extension)
 //pass option(read  documentation for options)
 
 //cwebp(input,output,option)
 
-const result = webp.cwebp("nodejs_logo.jpg","nodejs_logo.webp","-q 80",logging="-v");
+const result = webp.cwebp(
+  "nodejs_logo.jpg",
+  "nodejs_logo.webp",
+  "-q 80",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 ## Convert base64 image to webpbase64 image
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 function get_webpbase64(path) {
   fs.readFile(path, function (error, data) {
@@ -68,30 +72,28 @@ function get_webpbase64(path) {
       throw error;
     } else {
       let buf = Buffer.from(data);
-      let dataBase64 = Buffer.from(buf).toString('base64');
-        // base64str of image
+      let dataBase64 = Buffer.from(buf).toString("base64");
+      // base64str of image
       // base64str image type jpg,png ...
       //option: options and quality,it should be given between 0 to 100
-      let result = webp.str2webpstr(dataBase64,"jpg","-q 80");
-      result.then(function(result) {
+      let result = webp.str2webpstr(dataBase64, "jpg", "-q 80");
+      result.then(function (result) {
         // you access the value from the promise here
-        console.log(result)
+        console.log(result);
       });
     }
   });
 }
 // use the default temp path for conversion
-get_webpbase64("./nodejs_logo.jpg")
+get_webpbase64("./nodejs_logo.jpg");
 // use the custom temp path for conversion
-get_webpbase64("./nodejs_logo.jpg","/home/user/Desktop/webp/temp")
-
+get_webpbase64("./nodejs_logo.jpg", "/home/user/Desktop/webp/temp");
 ```
 
 ## Convert buffer to webp buffer
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 function get_webpbuffer(path) {
   fs.readFile(path, function (error, data) {
@@ -99,70 +101,73 @@ function get_webpbuffer(path) {
       throw error;
     } else {
       // buffer of image
-    // buffer image type jpg,png ...
-    //option: options and quality,it should be given between 0 to 100
-      let result = webp.buffer2webpbuffer(data,"jpg","-q 80");
-      result.then(function(result) {
+      // buffer image type jpg,png ...
+      //option: options and quality,it should be given between 0 to 100
+      let result = webp.buffer2webpbuffer(data, "jpg", "-q 80");
+      result.then(function (result) {
         // you access the value from the promise here
-        console.log(result)
+        console.log(result);
       });
     }
   });
 }
 // use the default temp path for conversion
-get_webpbuffer("./nodejs_logo.jpg")
+get_webpbuffer("./nodejs_logo.jpg");
 // use the custom temp path for conversion
-get_webpbuffer("./nodejs_logo.jpg","/home/user/Desktop/webp/temp")
-
+get_webpbuffer("./nodejs_logo.jpg", "/home/user/Desktop/webp/temp");
 ```
 
 # dwebp
 
 ## Convert webp image to other image format
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.webp image) path ,output image(.jpeg,.pnp .....)
 
 //dwebp(input,output,option)
 
-const result = webp.dwebp("nodejs_logo.webp","nodejs_logo.jpg","-o",logging="-v");
+const result = webp.dwebp(
+  "nodejs_logo.webp",
+  "nodejs_logo.jpg",
+  "-o",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
+  console.log(response);
+});
 ```
 
 # gif2webp
 
 ## Convert gif image to webp
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.gif) path ,output image(give path where to save and image file name with .webp extension)
 //pass option(read  documentation for options)
 
 //gwebp(input,output,option)
 
-const result = webp.gwebp("linux_logo.gif","linux_logo.webp","-q 80",logging="-v");
+const result = webp.gwebp(
+  "linux_logo.gif",
+  "linux_logo.webp",
+  "-q 80",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 # webpmux
 
 ## Add ICC profile,XMP metadata and EXIF metadata
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.webp image) path ,output image,option profile,set options(icc image profile,XMP metadata or EXIF metadata) and file.
 //for options use keywords as below
@@ -172,19 +177,22 @@ const webp=require('webp-converter');
 
 //webpmux_add(input,output,option_profile,set_option)
 
-const result = webp.webpmux_add("in.webp","icc_container.webp","image_profile.icc","icc",logging="-v");
+const result = webp.webpmux_add(
+  "in.webp",
+  "icc_container.webp",
+  "image_profile.icc",
+  "icc",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 ## Extract ICC profile,XMP metadata and EXIF metadata
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.webp image) path ,output format(.icc,.xmp and .exif),get options(icc image profile,XMP metadata or EXIF metadata) and file.
 //for options use keywords as below
@@ -194,19 +202,21 @@ const webp=require('webp-converter');
 
 //webpmux_extract(input,output,option)
 
-const result = webp.webpmux_extract("anim_container.webp","image_profile.icc","icc",logging="-v");
+const result = webp.webpmux_extract(
+  "anim_container.webp",
+  "image_profile.icc",
+  "icc",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 ## Strip ICC profile,XMP metadata and EXIF metadata
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.webp image) path ,output image(without icc),options(icc image profile,XMP metadata or EXIF metadata) and file.
 //for options use keywords as below
@@ -216,20 +226,21 @@ const webp=require('webp-converter');
 
 //webpmux_strip(input,output,option)
 
-const result = webp.webpmux_strip("icc_container.webp","without_icc.webp","icc",logging="-v");
+const result = webp.webpmux_strip(
+  "icc_container.webp",
+  "without_icc.webp",
+  "icc",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 ## Create an animated WebP file from Webp images
 
-  ```js
-
-//pass input images(.webp image) path with FRAME_OPTIONS, as array,ouput image will be animated .webp image 
-
+```js
+//pass input images(.webp image) path with FRAME_OPTIONS, as array,ouput image will be animated .webp image
 
 /*FRAME_OPTIONS
 
@@ -257,33 +268,43 @@ Background color of the canvas. Where: A, R, G and B are integers in the range 0
 
 //webpmux_animate(input_images_array,output,bgcolor)
 
-const webp=require('webp-converter');
+const webp = require("webp-converter");
 
-let input=[{"path":"./frames/tmp-0.webp","offset":"+100"},{"path":"./frames/tmp-1.webp", "offset":"+100"},{"path":"./frames/tmp-2.webp","offset":"+100"}];
-const result = webp.webpmux_animate(input,"anim_container.webp","10","255,255,255,255",logging="-v");
+let input = [
+  { path: "./frames/tmp-0.webp", offset: "+100" },
+  { path: "./frames/tmp-1.webp", offset: "+100" },
+  { path: "./frames/tmp-2.webp", offset: "+100" },
+];
+const result = webp.webpmux_animate(
+  input,
+  "anim_container.webp",
+  "10",
+  "255,255,255,255",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 ## Get a frame from an animated WebP file
 
-  ```js
-
-const webp=require('webp-converter');
+```js
+const webp = require("webp-converter");
 
 //pass input image(.webp image) path ,output image and frame number
 
 //webpmux_getframe(input,ouput,frame number)
 
-const result = webp.webpmux_getframe("anim_container.webp","frame_2.webp","2",logging="-v");
+const result = webp.webpmux_getframe(
+  "anim_container.webp",
+  "frame_2.webp",
+  "2",
+  (logging = "-v")
+);
 result.then((response) => {
-	console.log(response);
-  });
-
-
+  console.log(response);
+});
 ```
 
 ## Installation
@@ -294,4 +315,4 @@ $ npm install webp-converter
 
 ## License
 
-  [MIT](LICENSE)
+[MIT](LICENSE)

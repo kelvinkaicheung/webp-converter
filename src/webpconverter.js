@@ -51,7 +51,7 @@ module.exports.cwebp = (
   //option: options and quality,it should be given between 0 to 100
 
   const args = [
-    option,
+    ...option,
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
@@ -85,7 +85,7 @@ module.exports.dwebp = (
 
   const args = [
     `"${input_image}"`,
-    option,
+    ...option,
     `"${output_image}"`,
     `"${logging}"`,
   ]; //command to convert image
@@ -116,7 +116,7 @@ module.exports.gwebp = (
   //option: options and quality,it should be given between 0 to 100
 
   const args = [
-    option,
+    ...option,
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
@@ -153,7 +153,7 @@ module.exports.webpmux_add = (
 
   const args = [
     `-set`,
-    option,
+    ...option,
     icc_profile,
     `"${input_image}"`,
     `-o`,
@@ -186,7 +186,7 @@ module.exports.webpmux_extract = (
 
   const args = [
     `-get`,
-    option,
+    ...option,
     `"${input_image}"`,
     `-o`,
     icc_profile,
@@ -216,9 +216,9 @@ module.exports.webpmux_strip = (
   // input_image: input image(.webp)
   //output_image: output image .webp
 
-  const query = [
+  const args = [
     `-strip`,
-    option,
+    ...option,
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
