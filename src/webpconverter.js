@@ -55,7 +55,7 @@ module.exports.cwebp = (
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
-    `"${logging}"`,
+    `${logging}`,
   ]; //command to convert image
 
   //enwebp() return which platform webp library should be used for conversion
@@ -87,7 +87,7 @@ module.exports.dwebp = (
     `"${input_image}"`,
     ...option,
     `"${output_image}"`,
-    `"${logging}"`,
+    `${logging}`,
   ]; //command to convert image
 
   //dewebp() return which platform webp library should be used for conversion
@@ -120,7 +120,7 @@ module.exports.gwebp = (
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
-    `"${logging}"`,
+    `${logging}`,
   ]; //command to convert image
 
   //gifwebp() return which platform webp library should be used for conversion
@@ -158,7 +158,7 @@ module.exports.webpmux_add = (
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
-    `"${logging}"`,
+    `${logging}`,
   ];
 
   //webpmux() return which platform webp library should be used for conversion
@@ -190,7 +190,7 @@ module.exports.webpmux_extract = (
     `"${input_image}"`,
     `-o`,
     icc_profile,
-    `"${logging}"`,
+    `${logging}`,
   ];
 
   //webpmux() return which platform webp library should be used for conversion
@@ -222,7 +222,7 @@ module.exports.webpmux_strip = (
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
-    `"${logging}"`,
+    `${logging}`,
   ];
 
   //webpmux() return which platform webp library should be used for conversion
@@ -264,7 +264,8 @@ module.exports.webpmux_animate = (
     `-bgcolor`,
     bgcolor,
     `-o`,
-    `"${output_image}"``"${logging}"`,
+    `"${output_image}"`,
+    `${logging}`,
   ];
 
   //webpmux() return which platform webp library should be used for conversion
@@ -298,7 +299,7 @@ module.exports.webpmux_getframe = (
     `"${input_image}"`,
     `-o`,
     `"${output_image}"`,
-    `"${logging}"`,
+    `${logging}`,
   ];
 
   //webpmux() return which platform webp library should be used for conversion
