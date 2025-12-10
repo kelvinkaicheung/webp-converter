@@ -61,7 +61,7 @@ module.exports.cwebp = (
   //enwebp() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(enwebp(), args, (error, stdout, stderr) => {
+    execFile(enwebp(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -93,7 +93,7 @@ module.exports.dwebp = (
   //dewebp() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(dewebp(), args, (error, stdout, stderr) => {
+    execFile(dewebp(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -126,7 +126,7 @@ module.exports.gwebp = (
   //gifwebp() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(gifwebp(), args, (error, stdout, stderr) => {
+    execFile(gifwebp(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -164,7 +164,7 @@ module.exports.webpmux_add = (
   //webpmux() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(webpmux(), args, (error, stdout, stderr) => {
+    execFile(webpmux(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -196,7 +196,7 @@ module.exports.webpmux_extract = (
   //webpmux() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(webpmux(), args, (error, stdout, stderr) => {
+    execFile(webpmux(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -228,7 +228,7 @@ module.exports.webpmux_strip = (
   //webpmux() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(webpmux(), args, (error, stdout, stderr) => {
+    execFile(webpmux(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -271,7 +271,7 @@ module.exports.webpmux_animate = (
   //webpmux() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(webpmux(), args, (error, stdout, stderr) => {
+    execFile(webpmux(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
@@ -305,7 +305,7 @@ module.exports.webpmux_getframe = (
   //webpmux() return which platform webp library should be used for conversion
   return new Promise((resolve, reject) => {
     //execute command
-    execFile(webpmux(), args, (error, stdout, stderr) => {
+    execFile(webpmux(), args, { shell: true }, (error, stdout, stderr) => {
       if (error) {
         console.warn(error);
       }
